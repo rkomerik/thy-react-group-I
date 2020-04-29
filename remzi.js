@@ -18,9 +18,7 @@ var products = [
   ];
   
   function f(products) {
-      products.forEach(function(item){
-          console.log(item.profit())
-      });
+      products.forEach(item=>console.log(item.profit());
   }
   
   f(products);
