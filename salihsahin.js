@@ -1,7 +1,3 @@
-let profit = (price) => price * 1.1;
-let callFunction = (products) =>
-  products.forEach((product) => console.log(profit(product.price)));
-
 const products = [
   {
     id: 1,
@@ -14,4 +10,7 @@ const products = [
     price: 24.99,
   },
 ];
+let profit = (price) => price * 1.1;
+let callFunction = (products) =>
+  products.forEach((product) => console.log(profit(product.price)));
 callFunction(products);
