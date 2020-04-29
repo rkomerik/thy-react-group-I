@@ -5,8 +5,8 @@ let products=[{
     id:1,
     price:10,
     type:0    ,
-    profit:function () { 
-        return this.price*1.05;  
+    profit:function () {
+        return this.price*1.05;   
     }
 },
 {
@@ -14,20 +14,24 @@ let products=[{
     price:25,
     type:1    ,
     profit:function () {
-     return this.price*1.05;      
+        return this.price*1.05;       
     }
 }
 ]
 
-var topMaliyet=0
-var kar=0
+let topMaliyet=0;
+let ciro=0;
+let kar=0;
 function f(products) {
-for (let i = 0; i < products.length; i++) {
-    topMaliyet+=products[i].price;
-    kar+=products[i].profit()
-}
-console.log(topMaliyet)
-console.log(kar)
+    debugger
+    products.forEach(item => {
+        topMaliyet+=item.price;
+        ciro+=item.profit()
+        kar=ciro-topMaliyet
+    });
+console.log("Toplam Maliyet: "+topMaliyet)
+console.log("Toplam Ciro: "+ciro)
+console.log("Toplam Kar: "+kar)
 }
 
 
