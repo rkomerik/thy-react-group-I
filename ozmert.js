@@ -5,9 +5,8 @@ let products=[{
     id:1,
     price:10,
     type:0    ,
-    profit:function () {
-        this.price=this.price*1.05;    
-        return this.price;    
+    profit:function () { 
+        return this.price*1.05;  
     }
 },
 {
@@ -15,8 +14,7 @@ let products=[{
     price:25,
     type:1    ,
     profit:function () {
-        this.price=this.price*1.05;  
-        return this.price;      
+     return this.price*1.05;      
     }
 }
 ]
