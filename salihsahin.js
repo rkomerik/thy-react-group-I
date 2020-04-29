@@ -1,10 +1,10 @@
-var products = [
+const products = [
   {
     id: 1,
     type: 0,
     price: 65.0,
     profit: function () {
-      return (this.price = this.price * 1.1);
+      return this.price * 1.1;
     },
   },
   {
@@ -12,12 +12,12 @@ var products = [
     type: 0,
     price: 24.99,
     profit: function () {
-      return (this.price = this.price * 1.1);
+      return this.price * 1.1;
     },
   },
 ];
 
-var callFunction = (products) => {
+let callFunction = (products) => {
   products.forEach((product) => {
     console.log(product.profit());
   });
