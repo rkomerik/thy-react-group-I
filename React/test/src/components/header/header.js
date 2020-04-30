@@ -1,20 +1,44 @@
-import React from 'react'
+import React, { Component } from 'react';
+import { HeaderItem } from './headerItem';
+import SearchBox from '../searchbox/searchBox';
 
+class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { active: 'Home' };
+    }
 
-const Header = ()=>{
-    return (<div className="ui top fixed menu">
-    <a className="active item">Home</a>
-    <a className="item">Messages</a>
-    <a className="item">Friends</a>
-    <div className="right menu">
-        <div className="item">
-            <div className="ui transparent icon input">
-                <input type="text" placeholder="Search..."/>
-                <i className="search link icon"></i>
+    headerItemClick = (name) => {
+        console.log(name);
+        this.setState({ active: name });
+    };
+
+    searchBarClick = (value, sourceType) => {
+        console.log(`Value: ${value}\nSourceType:${sourceType}`);
+    };
+
+    render() {
+        let itemParams = {
+            activeName: this.state.active,
+            callbackOnClick: this.headerItemClick
+        };
+
+        return (
+            <div className='ui top fixed menu'>
+                <HeaderItem name='Home' params={itemParams} />
+                <HeaderItem name='Messages' params={itemParams} />
+                <HeaderItem name='Friends' params={itemParams} />
+
+                <SearchBox
+                    params={{
+                        position: 'right',
+                        callWhenChange: false,
+                        callbackOnClick: this.searchBarClick
+                    }}
+                />
             </div>
-            </div>
-        </div>
-    </div>);
+        );
+    }
 }
 
 export default Header;

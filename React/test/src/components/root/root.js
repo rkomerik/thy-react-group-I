@@ -12,7 +12,7 @@ function Root() {
     return (
         <div className='ui container'>
             <Header />
-            <div className='ui link cards two'>
+            <div className='ui four column doubling stackable grid container link cards'>
                 <Card
                     avatar={faker.image.avatar()}
                     firstName={faker.name.firstName()}
