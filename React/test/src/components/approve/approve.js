@@ -1,53 +1,55 @@
-import React from 'react'
-
+import React from 'react';
 
 class ApproveCard extends React.Component {
-
     constructor(props) {
         super(props);
-        this.state = { msg: 'Are you sure?', isApproved: false }
+        this.state = { isApproved: false, isBlameClicked: false };
     }
-
 
     onFriendClick = () => {
-        console.log("Friend clicked.");
-        this.setState({ msg: `Yey! You r frind`, isApproved:true });
-    }
+        this.setState({ isApproved: true });
+    };
     onBlameClick = () => {
-        console.log("Blame clicked.");
-        this.setState({ msg: `:( But why?`, isApproved: false });
-    }
+        this.setState({ isApproved: false, isBlameClicked: true });
+    };
+
+    reset = () => {
+        this.setState({ isApproved: false, isBlameClicked: false });
+    };
 
     render() {
-        // let additionalPart;
-        // if (this.state.isApproved) {
-        //     additionalPart = 'Thank you you already friend';
-        // } else {
-        //     additionalPart = <div className="extra content">
-        //         <div className="ui two buttons">
-        //             <button className="ui basic green button" onClick={this.onFriendClick}>Make Friend</button>
-        //             <button className="ui basic red button" onClick={this.onBlameClick}>Blame!</button>
-        //         </div>
-        //     </div>
-        // }
-        return (
-            <div className="ui card">
-                <div className="content">{this.state.msg}</div>
-                <div className="extra content">
-                    {this.props.children}
-                </div>
-                {
-                this.state.isApproved ? 'Thank you you already friend' : 
-                <div className="extra content">
-                         <div className="ui two buttons">
-                             <button className="ui basic green button" onClick={this.onFriendClick}>Make Friend</button>
-                             <button className="ui basic red button" onClick={this.onBlameClick}>Blame!</button>
-                         </div>
-                     </div>
-                }
-            </div>
+        let additionalPart;
+        if (this.state.isApproved) {
+            additionalPart = <div class='ui bottom attached button'>Thank you, you already friend</div>;
+        } else if (this.state.isBlameClicked) {
+            additionalPart = (
+                <div className='extra content'>
+                    <span className='ui tiny button left floated white disabled'>
+                        <i className='frown outline icon' />
+                        But why?
+                    </span>
 
-        )
+                    <button className='ui tiny button right floated blue' onClick={this.reset}>
+                        <i className='undo icon' />
+                        Undo!
+                    </button>
+                </div>
+            );
+        } else {
+            additionalPart = (
+                <div className='extra content'>
+                    <button className='ui tiny button left floated green' onClick={this.onFriendClick}>
+                        <i className='add icon' />
+                        Make Friend
+                    </button>
+                    <button className='ui tiny button right floated red' onClick={this.onBlameClick}>
+                        <i className='remove icon' />
+                        Blame!
+                    </button>
+                </div>
+            );
+        }
+        return additionalPart;
     }
 }
 
