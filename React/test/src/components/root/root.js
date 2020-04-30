@@ -1,12 +1,33 @@
 import React from 'react'
+import Header from '../header/header'
+import './root.css'
+import Card from '../card/card'
+import faker from 'faker'
+import ApproveCard from '../approve/approve'
 
 // Functional Component
-function Root() {
-    return (<div>
-        <label className="label" for="name"></label>
-        <input id="name" type="text"/>
-        <button style={{backgroundColor:'red',color:'white'}}>Submit</button>
-    </div>);
-}
 
+//PROPS 
+function Root() {
+    return (
+        <div className="ui container">
+            <Header />
+            <div className="ui cards">
+                <ApproveCard>
+                    <Card avatar={faker.image.avatar()} firstName={faker.name.firstName()} lastName={faker.name.lastName()} joinDate={faker.date.past().getFullYear()} friendsCount={faker.random.number(500)} jobArea={faker.name.jobArea()}/>
+                </ApproveCard>
+                <Card avatar={faker.image.avatar()} firstName={faker.name.firstName()} lastName={faker.name.lastName()} joinDate={faker.date.past().getFullYear()} friendsCount={faker.random.number(500)} jobArea={faker.name.jobArea()}/>
+                <Card avatar={faker.image.avatar()} firstName={faker.name.firstName()} lastName={faker.name.lastName()} joinDate={faker.date.past().getFullYear()} friendsCount={faker.random.number(500)} jobArea={faker.name.jobArea()}/>
+                <Card avatar={faker.image.avatar()} firstName={faker.name.firstName()} lastName={faker.name.lastName()} joinDate={faker.date.past().getFullYear()} friendsCount={faker.random.number(500)} jobArea={faker.name.jobArea()}/>
+                <Card avatar={faker.image.avatar()} firstName={faker.name.firstName()} lastName={faker.name.lastName()} joinDate={faker.date.past().getFullYear()} friendsCount={faker.random.number(500)} jobArea={faker.name.jobArea()}/>
+                <Card avatar={faker.image.avatar()} firstName={faker.name.firstName()} lastName={faker.name.lastName()} joinDate={faker.date.past().getFullYear()} friendsCount={faker.random.number(500)} jobArea={faker.name.jobArea()}/>
+                <Card avatar={faker.image.avatar()} firstName={faker.name.firstName()} lastName={faker.name.lastName()} joinDate={faker.date.past().getFullYear()} friendsCount={faker.random.number(500)} jobArea={faker.name.jobArea()}/>
+                <Card avatar={faker.image.avatar()} firstName={faker.name.firstName()} lastName={faker.name.lastName()} joinDate={faker.date.past().getFullYear()} friendsCount={faker.random.number(500)} jobArea={faker.name.jobArea()}/>
+            </div>
+        </div>
+    );
+}
+// Nesting
+// Resuability
+// Configuration
 export default Root;
