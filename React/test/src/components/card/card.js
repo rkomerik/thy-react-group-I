@@ -1,5 +1,9 @@
 import React from 'react';
 
+// Component Life Cycle
+// 1 - Mount
+// 2 - Updating
+// 3- UnMount 
 class Card extends React.Component {
     constructor(props) {
         super(props);
@@ -10,14 +14,14 @@ class Card extends React.Component {
         return (
             <div className='card'>
                 <div className='image'>
-                    <img src={this.props.avatar} />
+                    <img src={this.props.avatar}  alt="" />
                 </div>
                 <div className='content'>
                     <div className='header'>
                         {this.props.firstName} {this.props.lastName}
                     </div>
                     <div className='meta'>
-                        <a>Friends</a>
+                        <span>Friends</span>
                     </div>
                     <div className='description'>{this.props.jobArea}</div>
                 </div>

@@ -17,10 +17,23 @@ class ApproveCard extends React.Component {
         this.setState({ isApproved: false, isBlameClicked: false });
     };
 
+    // componentDidMount() {
+    //     console.log(`Rendered And DidMount`);
+    // }
+
+    // componentDidUpdate() {
+    //     console.log(`Rendered And DidUpdate`);
+    // }
+
+    // componentWillUnmount(){}
+    // shouldComponentUpdate
+    // getDerivedStateFromProps
+    // getSnapshotBeforeUpdate
+
     render() {
         let additionalPart;
         if (this.state.isApproved) {
-            additionalPart = <div class='ui bottom attached button'>Thank you, you already friend</div>;
+            additionalPart = <div className='ui bottom attached button'>Thank you, you already friend</div>;
         } else if (this.state.isBlameClicked) {
             additionalPart = (
                 <div className='extra content'>
