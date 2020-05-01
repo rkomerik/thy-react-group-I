@@ -1,5 +1,5 @@
 import React from 'react'
-
-const CategoryManagement=()=>(<div>Category Management works!</div>);
+import List from './components/list'
+const CategoryManagement=()=>(<List/>);
 
 export default CategoryManagement;

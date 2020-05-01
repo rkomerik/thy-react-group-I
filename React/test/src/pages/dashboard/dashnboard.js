@@ -1,6 +1,8 @@
-import React from 'react'
-import PplCards from '../../components/pplCards/pplCards'
+import React, { Suspense } from 'react'
+import LoadingIndicator from '../../components/loading/loading'
 
-const Dashboard = () => (<PplCards />)
+const PplCards = React.lazy(() => import('../../components/pplCards/pplCards'));
+
+const Dashboard = () => (<Suspense fallback={<LoadingIndicator />}><PplCards /></Suspense>)
 
 export default Dashboard;
