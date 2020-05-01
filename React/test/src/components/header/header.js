@@ -25,9 +25,9 @@ class Header extends Component {
 
         return (
             <div className='ui top fixed menu'>
-                <HeaderItem name='Dashboad' url="/" params={itemParams} />
-                <HeaderItem name='Category Management' url="/category" params={itemParams} />
-                <HeaderItem name='Unit Management' url="/unit" params={itemParams} />
+                <HeaderItem name='Dashboard' url='/' params={itemParams} />
+                <HeaderItem name='Category Management' url='/category-management' params={itemParams} />
+                <HeaderItem name='Unit Management' url='/unit-management' params={itemParams} />
 
                 <SearchBox
                     params={{

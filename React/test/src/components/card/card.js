@@ -9,7 +9,7 @@ class Card extends React.Component {
         super(props);
         this.state = { msg: 'Are you sure?', isApproved: false };
     }
-
+   
     render() {
         return (
             <div className='card'>

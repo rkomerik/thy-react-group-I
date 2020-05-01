@@ -6,6 +6,14 @@ class ApproveCard extends React.Component {
         this.state = { isApproved: false, isBlameClicked: false };
     }
 
+    // componentDidMount() {
+    //     console.log(`Rendered And DidMount Card Of: ${this.state.isApproved}`);
+    // }
+
+    // componentDidUpdate() {
+    //     console.log(`Rendered And DidUpdate Card Of: ${this.state.isApproved}`);
+    // }
+
     onFriendClick = () => {
         this.setState({ isApproved: true });
     };
