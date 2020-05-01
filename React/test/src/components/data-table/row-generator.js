@@ -4,14 +4,25 @@ import HeaderRow from './header-row';
 
 class RowGenerator extends Component {
     render() {
+        if (!this.props.type) {
+            throw new Error('type is undefined');
+        }
+
         let result;
         switch (this.props.type) {
             case 'data':
-                result = (
-                    <tbody>
-                        <DataRow {...this.props.params} />
-                    </tbody>
-                );
+                let dataParams = this.props.params;
+
+                if (dataParams.data && dataParams.columns) {
+                    result = dataParams.data.map((item, index) => {
+                        return <DataRow key={index} columns={dataParams.columns} data={item} />;
+                    });
+                } else {
+                    result = <DataRow />;
+                }
+
+                result = <tbody>{result}</tbody>;
+
                 break;
             case 'header':
                 result = (
@@ -21,7 +32,7 @@ class RowGenerator extends Component {
                 );
                 break;
             default:
-                result = <span></span>;
+                throw new Error('type is undefined');
                 break;
         }
         return result;

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
+import UnitList from './components/unit-list';
 
 class UnitManagement extends Component {
     render() {
-        return (
-            <div>
-                <span>Unit Management</span>
-            </div>
-        );
+        return <UnitList />;
     }
 }
 
