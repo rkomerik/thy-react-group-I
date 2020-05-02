@@ -1,10 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import UnitList from './components/unit-list';
 
-class UnitManagement extends Component {
-    render() {
-        return <UnitList />;
-    }
-}
+const UnitManagement = () => <UnitList />;
 
 export default UnitManagement;

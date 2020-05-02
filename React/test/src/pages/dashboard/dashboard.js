@@ -1,4 +1,4 @@
-import React, { Component, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import LoadingIndicator from '../../components/loading/loading';
 
 const PeopleCards = React.lazy(() => import('../../components/people-cards/people-cards'));

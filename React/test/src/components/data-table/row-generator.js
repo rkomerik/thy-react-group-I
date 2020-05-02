@@ -33,7 +33,6 @@ class RowGenerator extends Component {
                 break;
             default:
                 throw new Error('type is undefined');
-                break;
         }
         return result;
     }
