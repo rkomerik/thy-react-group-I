@@ -22,4 +22,5 @@ export default (state = initialData, action) => {
                 return state;
         }
     }
+    return state; 
 }

@@ -4,35 +4,36 @@ import { connect } from 'react-redux'
 import { setDataActionCreator, ACTION_TYPE_UNIT } from '../../../actions'
 import axios from 'axios'
 class List extends React.Component {
-    componentDidMount() {
+    hanleLoadData = () => {
         axios.get("http://178.128.248.160:81/api/unit", {
             headers: {
-                Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjJjYTc5NjVhLTk3NWQtNGNiOC05OGNjLTIzZDg5Y2M5YzU3YiIsImVtYWlsIjoibWdhbmkudG9tYmFsYWtAeWFob28uY29tIiwicm9sZSI6Im51bGwiLCJuYmYiOjE1ODg0MDg5ODMsImV4cCI6MTU4ODQwOTg4MywiaWF0IjoxNTg4NDA4OTgzfQ.9CBgQgrMRxi6IzKHMKEbgLwzbVYFRInSCL3KhKDI1yg`
+                Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjJjYTc5NjVhLTk3NWQtNGNiOC05OGNjLTIzZDg5Y2M5YzU3YiIsImVtYWlsIjoibWdhbmkudG9tYmFsYWtAeWFob28uY29tIiwicm9sZSI6Im51bGwiLCJuYmYiOjE1ODg0MTA2MTcsImV4cCI6MTU4ODQxMTUxNywiaWF0IjoxNTg4NDEwNjE3fQ.WjuDNghEuYvkESaRx-vdIwA8X0bxXxRyy39MmS31yy4`
             }
         })
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 this.props.dispatch(setDataActionCreator(ACTION_TYPE_UNIT, res.data.data))
+                // this.props.dispatch(
+                // {
+                //     type: ACTION_SET_DATA,
+                //     actionType: ACTION_TYPE_UNIT,
+                //     payload:res.data.data
+                // });
             })
             .catch(e => console.log(e));
     }
     render() {
-        let r;
-        if (this.props.units) {
-            r = <DataTable headerText={['Name', 'ShortForm', 'Materials', 'id', 'Active', 'Deleted', 'Created At', 'Updated At', 'Deleted At']}
-                data={this.props.units} />
-        }
-        else {
-            r = <div>Loading..</div>
-        }
         return (
             <div className="ui container">
-                {r}
+                <button className="ui labeled icon button" onClick={this.hanleLoadData}><i className="refresh icon"></i>Refresh</button>
+                <DataTable headerText={['Name', 'ShortForm', 'Materials', 'id', 'Active', 'Deleted', 'Created At', 'Updated At', 'Deleted At']}
+                data={this.props.units} />
             </div>
         )
     }
 }
 const mapStateToProps = (state) => {
-    return state;
+    return { units: state.units };
 }
 export default connect(mapStateToProps)(List)
+//export default connect(mapStateToProps,{ACTION_SET_DATA})(List)
