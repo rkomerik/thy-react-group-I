@@ -6,6 +6,8 @@ const initialData = {
 };
 
 export default (state = initialData, action) => {
+    console.log(action);
+    
     if (action.type === ACTION_LOAD_DATA) {
         switch (action.actionType) {
             case ACTION_TYPE_UNIT:

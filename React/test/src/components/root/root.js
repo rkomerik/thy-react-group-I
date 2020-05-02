@@ -5,8 +5,8 @@ import { Switch, Route } from 'react-router-dom';
 import './root.css';
 
 const Dashboard = React.lazy(() => import('../../pages/dashboard/dashboard'));
-const CategoryManagement = React.lazy(() => import('../../pages/category-management/index'));
-const UnitManagement = React.lazy(() => import('../../pages/unit-management/index'));
+const CategoryManagement = React.lazy(() => import('../../pages/category-management'));
+const UnitManagement = React.lazy(() => import('../../pages/unit-management'));
 
 //PROPS
 function Root() {

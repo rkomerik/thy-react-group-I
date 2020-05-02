@@ -1,9 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
+import CategoryList from './components/category-list';
 
-class CategoryManagement extends Component {
-    render() {
-        return <span>Category</span>;
-    }
-}
+const CategoryManagement = () => <CategoryList />;
 
 export default CategoryManagement;

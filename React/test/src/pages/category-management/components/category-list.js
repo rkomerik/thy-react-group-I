@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import DataTable from '../../../components/data-table/data-table';
 import { connect } from 'react-redux';
-import { loadDataActionCreator, ACTION_LOAD_DATA, ACTION_TYPE_UNIT } from '../../../actions';
+import { loadDataActionCreator, ACTION_LOAD_DATA, ACTION_TYPE_CATEGORY } from '../../../actions';
 
-class UnitList extends Component {
+class CategoryList extends Component {
     componentDidMount() {
         this.loadData();
     }
 
     loadData = () => {
-        this.props.dispatch(loadDataActionCreator(ACTION_LOAD_DATA, 'unit', ACTION_TYPE_UNIT));
+        this.props.dispatch(loadDataActionCreator(ACTION_LOAD_DATA, 'category', ACTION_TYPE_CATEGORY));
     };
 
     columnStructure = () => {
@@ -19,8 +19,8 @@ class UnitList extends Component {
                 displayName: 'Ad'
             },
             {
-                source: 'shortForm',
-                displayName: 'Kısaltma'
+                source: 'iconPath',
+                displayName: 'Görsel'
             },
             {
                 source: 'isActive',
@@ -49,7 +49,7 @@ class UnitList extends Component {
                     Refresh
                 </button>
                 <div className='ui segment'>
-                    <DataTable columns={this.columnStructure()} data={this.props.units} />
+                    <DataTable columns={this.columnStructure()} data={this.props.categories} />
                     <div className={loaderClassNames}>
                         <div className='ui loader' />
                     </div>
@@ -61,16 +61,9 @@ class UnitList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        units: state.units,
+        categories: state.categories,
         loading: state.loading
     };
 };
 
-// const mapDispatchToProps = (dispatch) => ({
-//     dispatch,
-//     ACTION_SET_DATA,
-//     ACTION_SET_LOADING
-// });
-
-// export default connect(mapStateToProps, mapDispatchToProps)(UnitList);
-export default connect(mapStateToProps)(UnitList);
+export default connect(mapStateToProps)(CategoryList);
