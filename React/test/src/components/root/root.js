@@ -6,6 +6,7 @@ import LoadingIndicator from '../loading/loading'
 
 const Dashboard = React.lazy(() => import('../../pages/dashboard/dashnboard'));
 const UnitManagement = React.lazy(() => import('../../pages/unit-mgmt'));
+const CategoryManagement = React.lazy(() => import('../../pages/category-mgmt'));
 
 
 // Functional Component
@@ -19,6 +20,8 @@ function Root() {
                 <Switch>
                     <Route path="/" exact component={Dashboard} />
                     <Route path="/unit" component={UnitManagement} />
+                    <Route path="/category" component={CategoryManagement} />
+
                 </Switch>
             </Suspense>
         </div>
