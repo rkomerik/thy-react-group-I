@@ -8,10 +8,11 @@ export const ACTION_TYPE_UNIT = 'UNIT';
 export const ACTION_TYPE_CATEGORY = 'CATEGORY';
 
 // ACTION CREATOR
-export const loadDataActionCreator = (actionType) => {
+export const loadDataActionCreator = (actionType, endpoint) => {
     return {
         type: ACTION_LOAD_DATA,
-        actionType: actionType
+        actionType: actionType,
+        endpoint: endpoint
     };
 };
 
