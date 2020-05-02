@@ -16,8 +16,8 @@ export default (state = initialData, action) => {
     }
     if (action.actionType === ACTION_TYPE_CATEGORY) {
         switch (action.type) {
-            case ACTION_LOAD_DATA:
-                return ''
+            case ACTION_SET_DATA:
+                    return { categories: action.payload }
             default:
                 return state;
         }

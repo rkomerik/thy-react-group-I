@@ -5,8 +5,8 @@ export default class DataTable extends React.Component {
         let result = this.props.data.map((item, index) => {
             return <DataRow
                 key={index}
-                {...item}
-                columCount={this.props.headerText.length} /> // ()=> Fat Arrow Function
+                {...item}/>
+                //columCount={this.props.headerText.length} /> // ()=> Fat Arrow Function
         });
         return (<table className="ui celled table">
             <thead>

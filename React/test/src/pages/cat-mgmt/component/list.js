@@ -1,25 +1,24 @@
 import React from 'react';
 import DataTable from '../../../components/datacompenents/datatable'
 import { connect } from 'react-redux'
-import { setDataActionCreator, ACTION_TYPE_UNIT, loadDataActionCreator } from '../../../actions'
+import { setDataActionCreator, ACTION_TYPE_CATEGORY, loadDataActionCreator } from '../../../actions'
 
 class List extends React.Component {
     hanleLoadData = () => {
-        this.props.dispatch(loadDataActionCreator(ACTION_TYPE_UNIT));
+        this.props.dispatch(loadDataActionCreator(ACTION_TYPE_CATEGORY));
     }
     render() {
         return (
             <div className="ui container">
                 <button className="ui labeled icon button" onClick={this.hanleLoadData}><i className="refresh icon"></i>Refresh</button>
-                <DataTable headerText={['Name', 'ShortForm', 'Materials', 'id', 'Active', 'Deleted', 'Created At', 'Updated At', 'Deleted At']}
-                data={this.props.units} />
+                <DataTable headerText={['Name', 'displayOrder', 'iconFile', 'iconPath', 'iconFileContentType', 'id','isActive','isDeleted', 'Created At', 'Updated At', 'Deleted At']}
+                  data={this.props.categories} />
             </div>
         )
     }
 }
 const mapStateToProps = (state) => {
     debugger
-    return { units: state.units };
+    return { categories: state.categories };
 }
 export default connect(mapStateToProps)(List)
-//export default connect(mapStateToProps,{ACTION_SET_DATA})(List)
