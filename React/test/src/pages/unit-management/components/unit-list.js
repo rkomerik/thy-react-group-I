@@ -2,15 +2,9 @@ import React, { Component } from 'react';
 import DataTable from '../../../components/data-table/data-table';
 import { connect } from 'react-redux';
 import { loadDataActionCreator, ACTION_LOAD_DATA, ACTION_TYPE_UNIT } from '../../../actions';
+import DataTableWithLoading from '../../../components/data-table/data-table-with-loading';
 
 class UnitList extends Component {
-    componentDidMount() {
-        this.loadData();
-    }
-
-    loadData = () => {
-        this.props.dispatch(loadDataActionCreator(ACTION_LOAD_DATA, 'unit', ACTION_TYPE_UNIT));
-    };
 
     columnStructure = () => {
         return [
@@ -34,43 +28,24 @@ class UnitList extends Component {
     };
 
     render() {
-        let buttonClassNames = 'ui labeled icon button';
-        let loaderClassNames = 'ui dimmer';
-
-        if (this.props.loading) {
-            buttonClassNames += ' loading';
-            loaderClassNames += ' active';
-        }
-
-        return (
-            <div>
-                <button className={buttonClassNames} onClick={this.loadData}>
-                    <i className={`ui icon refresh`} />
-                    Refresh
-                </button>
-                <div className='ui segment'>
-                    <DataTable columns={this.columnStructure()} data={this.props.units} />
-                    <div className={loaderClassNames}>
-                        <div className='ui loader' />
-                    </div>
-                </div>
-            </div>
-        );
+        return <DataTableWithLoading endpoint="unit" columns={this.columnStructure()} effectActionType={ACTION_TYPE_UNIT} dataTitle="units" />;
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        units: state.units,
-        loading: state.loading
-    };
-};
+// const mapStateToProps = (state) => {
+//     return {
+//         units: state.units,
+//         loading: state.loading
+//     };
+// };
 
-// const mapDispatchToProps = (dispatch) => ({
-//     dispatch,
-//     ACTION_SET_DATA,
-//     ACTION_SET_LOADING
-// });
+// // const mapDispatchToProps = (dispatch) => ({
+// //     dispatch,
+// //     ACTION_SET_DATA,
+// //     ACTION_SET_LOADING
+// // });
 
-// export default connect(mapStateToProps, mapDispatchToProps)(UnitList);
-export default connect(mapStateToProps)(UnitList);
+// // export default connect(mapStateToProps, mapDispatchToProps)(UnitList);
+// export default connect(mapStateToProps)(UnitList);
+
+export default UnitList;

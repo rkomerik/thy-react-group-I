@@ -6,8 +6,6 @@ const initialData = {
 };
 
 export default (state = initialData, action) => {
-    console.log(action);
-    
     if (action.type === ACTION_LOAD_DATA) {
         switch (action.actionType) {
             case ACTION_TYPE_UNIT:
@@ -20,11 +18,12 @@ export default (state = initialData, action) => {
     }
 
     if (action.type === ACTION_SET_DATA) {
+        
         switch (action.actionType) {
             case ACTION_TYPE_UNIT:
-                return { units: action.payload };
+                return { loading: true, units: action.payload };
             case ACTION_TYPE_CATEGORY:
-                return { categories: action.payload };
+                return { loading: true, categories: action.payload };
             default:
                 return state;
         }
