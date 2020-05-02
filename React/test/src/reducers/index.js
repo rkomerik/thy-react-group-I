@@ -14,13 +14,15 @@ export default (state = initialData, action) => {
                 return state;
         }
     }
+    
     if (action.actionType === ACTION_TYPE_CATEGORY) {
         switch (action.type) {
             case ACTION_LOAD_DATA:
-                return ''
+                return { categories: action.payload }
             default:
                 return state;
         }
     }
+
     return state; 
 }
